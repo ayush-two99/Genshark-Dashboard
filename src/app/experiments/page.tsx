@@ -27,7 +27,7 @@ const funnelData = [
 ];
 
 export default function ExperimentsPage() {
-  const { data, isLoading, error } = useFetch<Experiment[]>(api.getExperiments);
+  const { data, loading, error } = useFetch<Experiment[]>(api.getExperiments);
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState<'all' | 'running' | 'completed' | 'draft'>('all');
   const experiments = data ?? [];
@@ -109,7 +109,7 @@ export default function ExperimentsPage() {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {isLoading && (
+              {loading && (
                 <tr><td colSpan={6} className="px-6 py-4 text-sm text-gray-500">Loading…</td></tr>
               )}
               {error && (

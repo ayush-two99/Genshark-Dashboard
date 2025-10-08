@@ -19,7 +19,7 @@ function estimateReadTime(text: string): number {
 }
 
 export default function ContentLabPage() {
-  const { data, isLoading, error } = useFetch<ContentItem[]>(api.getContentLab);
+  const { data, loading, error } = useFetch<ContentItem[]>(api.getContentLab);
   const [query, setQuery] = useState('');
   const [minScore, setMinScore] = useState<number>(0);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -116,9 +116,9 @@ export default function ContentLabPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1 bg-white rounded-lg border border-gray-200 overflow-hidden">
           <div className="max-h-[28rem] overflow-y-auto">
-            {isLoading && <div className="p-4 text-sm text-gray-500">Loading content…</div>}
+            {loading && <div className="p-4 text-sm text-gray-500">Loading content…</div>}
             {error && <div className="p-4 text-sm text-red-600">Failed to load content</div>}
-            {!isLoading && filtered.length === 0 && (
+            {!loading && filtered.length === 0 && (
               <div className="p-4 text-sm text-gray-500">No content found</div>
             )}
             {filtered.map((item) => (

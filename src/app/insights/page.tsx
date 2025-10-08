@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { 
   LineChart, 
@@ -78,7 +78,7 @@ const competitorData = [
   { name: 'Competitor C', value: 12 },
 ];
 
-export default function InsightsPage() {
+function InsightsContent() {
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<'traffic' | 'engagement' | 'signals'>('traffic');
   const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d'>('7d');
@@ -390,6 +390,14 @@ export default function InsightsPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function InsightsPage() {
+  return (
+    <Suspense fallback={<div className="p-6">Loading...</div>}>
+      <InsightsContent />
+    </Suspense>
   );
 }
 
