@@ -30,35 +30,37 @@ import {
 import KPICard from '@/components/ui/KPICard';
 
 const visibilityData = [
-  { date: '2024-01-01', visibility: 65, mentions: 120, traffic: 2500 },
-  { date: '2024-01-02', visibility: 68, mentions: 135, traffic: 2800 },
-  { date: '2024-01-03', visibility: 72, mentions: 142, traffic: 3100 },
-  { date: '2024-01-04', visibility: 75, mentions: 158, traffic: 3400 },
-  { date: '2024-01-05', visibility: 78, mentions: 165, traffic: 3600 },
-  { date: '2024-01-06', visibility: 82, mentions: 180, traffic: 3900 },
-  { date: '2024-01-07', visibility: 85, mentions: 195, traffic: 4200 },
+  { date: '2024-12-15', visibility: 78, mentions: 2847, traffic: 18420 },
+  { date: '2024-12-16', visibility: 81, mentions: 3124, traffic: 20150 },
+  { date: '2024-12-17', visibility: 83, mentions: 3456, traffic: 22340 },
+  { date: '2024-12-18', visibility: 85, mentions: 3789, traffic: 24560 },
+  { date: '2024-12-19', visibility: 87, mentions: 4123, traffic: 26780 },
+  { date: '2024-12-20', visibility: 89, mentions: 4456, traffic: 28990 },
+  { date: '2024-12-21', visibility: 92, mentions: 4789, traffic: 31200 },
 ];
 
 const engineData = [
-  { name: 'ChatGPT', value: 35, color: '#10B981' },
-  { name: 'Claude', value: 25, color: '#3B82F6' },
-  { name: 'Perplexity', value: 20, color: '#8B5CF6' },
-  { name: 'Bard', value: 15, color: '#F59E0B' },
-  { name: 'Others', value: 5, color: '#6B7280' },
+  { name: 'ChatGPT', value: 42, color: '#10B981' },
+  { name: 'Claude', value: 28, color: '#3B82F6' },
+  { name: 'Perplexity', value: 15, color: '#8B5CF6' },
+  { name: 'Gemini', value: 10, color: '#F59E0B' },
+  { name: 'Copilot', value: 5, color: '#6B7280' },
 ];
 
 const topPrompts = [
-  { prompt: 'best wireless headphones 2025', mentions: 45, change: 12, source: 'TechReviewer' },
-  { prompt: 'budget earbuds for running', mentions: 38, change: -3, source: 'RunnerBlog' },
-  { prompt: 'noise cancelling headphones review', mentions: 32, change: 8, source: 'AudioExpert' },
-  { prompt: 'wireless audio quality comparison', mentions: 28, change: -2, source: 'SoundCheck' },
-  { prompt: 'gaming headset recommendations', mentions: 25, change: 15, source: 'GameTech' },
+  { prompt: 'how to optimize AI prompts for better results', mentions: 1247, change: 18, source: 'AI Weekly' },
+  { prompt: 'best AI tools for content creation 2024', mentions: 892, change: 12, source: 'TechCrunch' },
+  { prompt: 'ChatGPT vs Claude comparison analysis', mentions: 756, change: -5, source: 'AI Research' },
+  { prompt: 'AI productivity tools for developers', mentions: 634, change: 25, source: 'DevTools' },
+  { prompt: 'prompt engineering best practices guide', mentions: 523, change: 8, source: 'AI Academy' },
 ];
 
 const recentAlerts = [
-  { id: 1, type: 'warning', message: 'Mentions dropped below 50 in the last 7 days', time: '2 hours ago', icon: AlertTriangle },
-  { id: 2, type: 'info', message: 'Visibility score increased by 15% today', time: '4 hours ago', icon: TrendingUp },
-  { id: 3, type: 'success', message: 'Share of voice exceeded 60% target', time: '6 hours ago', icon: CheckCircle },
+  { id: 1, type: 'warning', message: 'AI mention velocity dropped 12% in last 24h', time: '2 hours ago', icon: AlertTriangle },
+  { id: 2, type: 'info', message: 'ChatGPT integration queries up 23% today', time: '4 hours ago', icon: TrendingUp },
+  { id: 3, type: 'success', message: 'AI visibility score reached 92% - new record!', time: '6 hours ago', icon: CheckCircle },
+  { id: 4, type: 'info', message: 'Claude mentions increased 15% this week', time: '8 hours ago', icon: TrendingUp },
+  { id: 5, type: 'warning', message: 'Perplexity search volume down 8%', time: '12 hours ago', icon: AlertTriangle },
 ];
 
 export default function HomePage() {
@@ -66,8 +68,8 @@ export default function HomePage() {
     <div className="space-y-8 p-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Overview</h1>
-          <p className="text-gray-600 mt-1">Monitor your AI visibility metrics and performance</p>
+          <h1 className="text-3xl font-bold text-gray-900">AI Visibility Dashboard</h1>
+          <p className="text-gray-600 mt-1">Monitor your AI brand mentions across LLM platforms</p>
         </div>
         <div className="flex items-center space-x-4">
           <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">Export Report</button>
@@ -76,18 +78,18 @@ export default function HomePage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <KPICard title="Visibility Score" value="85%" change={12} changeType="increase" icon={<Eye className="w-8 h-8" />} color="blue" />
-        <KPICard title="AI Mentions (7d)" value="1,247" change={8} changeType="increase" icon={<MessageSquare className="w-8 h-8" />} color="green" />
-        <KPICard title="Share of Voice" value="42.3%" change={-2} changeType="decrease" icon={<Target className="w-8 h-8" />} color="yellow" />
-        <KPICard title="Traffic Impact" value="+28%" change={15} changeType="increase" icon={<Zap className="w-8 h-8" />} color="purple" />
+        <KPICard title="AI Visibility Score" value="92%" change={18} changeType="increase" icon={<Eye className="w-8 h-8" />} color="blue" />
+        <KPICard title="LLM Mentions (7d)" value="4,789" change={23} changeType="increase" icon={<MessageSquare className="w-8 h-8" />} color="green" />
+        <KPICard title="Share of Voice" value="67.3%" change={8} changeType="increase" icon={<Target className="w-8 h-8" />} color="yellow" />
+        <KPICard title="Traffic Impact" value="+34%" change={12} changeType="increase" icon={<Zap className="w-8 h-8" />} color="purple" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h3 className="text-lg font-semibold text-gray-900">Visibility Over Time</h3>
-              <p className="text-sm text-gray-600">Track your brand mentions across AI platforms</p>
+              <h3 className="text-lg font-semibold text-gray-900">AI Visibility Over Time</h3>
+              <p className="text-sm text-gray-600">Track your AI brand mentions across LLM platforms</p>
             </div>
             <div className="flex space-x-2">
               <button className="px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded-full">7D</button>
@@ -114,8 +116,8 @@ export default function HomePage() {
 
         <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
           <div className="mb-6">
-            <h3 className="text-lg font-semibold text-gray-900">Engine Breakdown</h3>
-            <p className="text-sm text-gray-600">AI platform distribution</p>
+            <h3 className="text-lg font-semibold text-gray-900">LLM Platform Distribution</h3>
+            <p className="text-sm text-gray-600">AI platform mention breakdown</p>
           </div>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
@@ -143,8 +145,8 @@ export default function HomePage() {
         <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h3 className="text-lg font-semibold text-gray-900">Top Performing Prompts</h3>
-              <p className="text-sm text-gray-600">Most mentioned prompts this week</p>
+              <h3 className="text-lg font-semibold text-gray-900">Top AI-Related Queries</h3>
+              <p className="text-sm text-gray-600">Most searched AI topics this week</p>
             </div>
             <button className="text-blue-600 hover:text-blue-700 text-sm font-medium">View All</button>
           </div>
@@ -167,8 +169,8 @@ export default function HomePage() {
         <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h3 className="text-lg font-semibold text-gray-900">Recent Alerts</h3>
-              <p className="text-sm text-gray-600">System notifications and updates</p>
+              <h3 className="text-lg font-semibold text-gray-900">AI Monitoring Alerts</h3>
+              <p className="text-sm text-gray-600">Real-time AI visibility notifications</p>
             </div>
             <button className="text-blue-600 hover:text-blue-700 text-sm font-medium">View All</button>
           </div>

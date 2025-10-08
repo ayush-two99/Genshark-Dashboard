@@ -37,45 +37,45 @@ import {
 
 // Mock data for different chart types
 const trafficData = [
-  { date: '2024-01-01', organic: 1200, direct: 800, referral: 400, social: 200 },
-  { date: '2024-01-02', organic: 1350, direct: 850, referral: 450, social: 250 },
-  { date: '2024-01-03', organic: 1500, direct: 900, referral: 500, social: 300 },
-  { date: '2024-01-04', organic: 1650, direct: 950, referral: 550, social: 350 },
-  { date: '2024-01-05', organic: 1800, direct: 1000, referral: 600, social: 400 },
-  { date: '2024-01-06', organic: 1950, direct: 1050, referral: 650, social: 450 },
-  { date: '2024-01-07', organic: 2100, direct: 1100, referral: 700, social: 500 },
+  { date: '2024-12-15', organic: 18420, direct: 12340, referral: 8560, social: 4230 },
+  { date: '2024-12-16', organic: 20150, direct: 13450, referral: 9230, social: 4670 },
+  { date: '2024-12-17', organic: 22340, direct: 14560, referral: 10120, social: 5120 },
+  { date: '2024-12-18', organic: 24560, direct: 15670, referral: 11010, social: 5570 },
+  { date: '2024-12-19', organic: 26780, direct: 16780, referral: 11900, social: 6020 },
+  { date: '2024-12-20', organic: 28990, direct: 17890, referral: 12790, social: 6470 },
+  { date: '2024-12-21', organic: 31200, direct: 19000, referral: 13680, social: 6920 },
 ];
 
 const engagementData = [
-  { metric: 'Page Views', value: 85, fullMark: 100 },
-  { metric: 'Time on Site', value: 72, fullMark: 100 },
-  { metric: 'Bounce Rate', value: 45, fullMark: 100 },
-  { metric: 'Conversion', value: 68, fullMark: 100 },
-  { metric: 'Social Shares', value: 78, fullMark: 100 },
-  { metric: 'AI Mentions', value: 92, fullMark: 100 },
+  { metric: 'AI Query Success', value: 92, fullMark: 100 },
+  { metric: 'Response Accuracy', value: 88, fullMark: 100 },
+  { metric: 'User Satisfaction', value: 85, fullMark: 100 },
+  { metric: 'Platform Adoption', value: 78, fullMark: 100 },
+  { metric: 'Feature Usage', value: 82, fullMark: 100 },
+  { metric: 'AI Integration', value: 95, fullMark: 100 },
 ];
 
 const llmSignalsData = [
-  { name: 'ChatGPT', mentions: 45, traffic: 1200, engagement: 78 },
-  { name: 'Claude', mentions: 32, traffic: 890, engagement: 82 },
-  { name: 'Perplexity', mentions: 28, traffic: 750, engagement: 75 },
-  { name: 'Bard', mentions: 22, traffic: 650, engagement: 70 },
-  { name: 'Copilot', mentions: 18, traffic: 520, engagement: 68 },
+  { name: 'ChatGPT', mentions: 4789, traffic: 31200, engagement: 92 },
+  { name: 'Claude', mentions: 3245, traffic: 20150, engagement: 88 },
+  { name: 'Perplexity', mentions: 2156, traffic: 13450, engagement: 85 },
+  { name: 'Gemini', mentions: 1876, traffic: 11230, engagement: 82 },
+  { name: 'Copilot', mentions: 1234, traffic: 8560, engagement: 78 },
 ];
 
 const contentPerformanceData = [
-  { title: 'Best Wireless Headphones 2025', views: 15420, mentions: 45, score: 92 },
-  { title: 'Budget Earbuds for Running', views: 12350, mentions: 38, score: 87 },
-  { title: 'Noise Cancelling Headphones Review', views: 9870, mentions: 32, score: 84 },
-  { title: 'Gaming Headset Recommendations', views: 8760, mentions: 28, score: 79 },
-  { title: 'Wireless Audio Quality Comparison', views: 7430, mentions: 25, score: 76 },
+  { title: 'AI Prompt Engineering Best Practices', views: 31200, mentions: 1247, score: 95 },
+  { title: 'ChatGPT vs Claude: Complete Comparison', views: 28990, mentions: 892, score: 92 },
+  { title: 'Top AI Tools for Content Creation 2024', views: 26780, mentions: 756, score: 89 },
+  { title: 'AI Productivity Tools for Developers', views: 24560, mentions: 634, score: 87 },
+  { title: 'Machine Learning Model Optimization', views: 22340, mentions: 523, score: 85 },
 ];
 
 const competitorData = [
-  { name: 'Your Brand', value: 42 },
-  { name: 'Competitor A', value: 28 },
-  { name: 'Competitor B', value: 18 },
-  { name: 'Competitor C', value: 12 },
+  { name: 'Your AI Platform', value: 67 },
+  { name: 'OpenAI', value: 23 },
+  { name: 'Anthropic', value: 7 },
+  { name: 'Google AI', value: 3 },
 ];
 
 function InsightsContent() {
@@ -331,11 +331,11 @@ function InsightsContent() {
         <div className="bg-white rounded-lg border border-gray-200 p-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Total Traffic</p>
-              <p className="text-2xl font-bold text-gray-900">24.5K</p>
+              <p className="text-sm text-gray-600">Total AI Traffic</p>
+              <p className="text-2xl font-bold text-gray-900">312K</p>
               <p className="text-xs text-green-600 flex items-center">
                 <TrendingUp className="w-3 h-3 mr-1" />
-                +12% vs last period
+                +23% vs last period
               </p>
             </div>
             <div className="p-2 bg-blue-100 rounded-lg">
@@ -346,11 +346,11 @@ function InsightsContent() {
         <div className="bg-white rounded-lg border border-gray-200 p-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">AI Mentions</p>
-              <p className="text-2xl font-bold text-gray-900">1,247</p>
+              <p className="text-sm text-gray-600">LLM Mentions</p>
+              <p className="text-2xl font-bold text-gray-900">4,789</p>
               <p className="text-xs text-green-600 flex items-center">
                 <TrendingUp className="w-3 h-3 mr-1" />
-                +8% vs last period
+                +18% vs last period
               </p>
             </div>
             <div className="p-2 bg-green-100 rounded-lg">
@@ -361,11 +361,11 @@ function InsightsContent() {
         <div className="bg-white rounded-lg border border-gray-200 p-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Engagement Rate</p>
-              <p className="text-2xl font-bold text-gray-900">78%</p>
-              <p className="text-xs text-red-600 flex items-center">
-                <TrendingDown className="w-3 h-3 mr-1" />
-                -2% vs last period
+              <p className="text-sm text-gray-600">AI Accuracy Rate</p>
+              <p className="text-2xl font-bold text-gray-900">92%</p>
+              <p className="text-xs text-green-600 flex items-center">
+                <TrendingUp className="w-3 h-3 mr-1" />
+                +5% vs last period
               </p>
             </div>
             <div className="p-2 bg-yellow-100 rounded-lg">
@@ -376,11 +376,11 @@ function InsightsContent() {
         <div className="bg-white rounded-lg border border-gray-200 p-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Share of Voice</p>
-              <p className="text-2xl font-bold text-gray-900">42.3%</p>
+              <p className="text-sm text-gray-600">AI Market Share</p>
+              <p className="text-2xl font-bold text-gray-900">67.3%</p>
               <p className="text-xs text-green-600 flex items-center">
                 <TrendingUp className="w-3 h-3 mr-1" />
-                +5% vs last period
+                +8% vs last period
               </p>
             </div>
             <div className="p-2 bg-purple-100 rounded-lg">
