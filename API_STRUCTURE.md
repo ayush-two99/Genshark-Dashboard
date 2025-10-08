@@ -129,6 +129,11 @@ interface AlertMetadata {
 }
 ```
 
+**Used In**:
+- Page: `/auth/sign-in`
+- Component(s): `SigninWithPassword.tsx`, `GoogleSigninButton.tsx`
+- Fields consumed: `user.id`, `user.name`, `user.email`, `user.role`, `tokens.accessToken`, `tokens.refreshToken`
+
 ### POST /auth/refresh
 **Description**: Refresh access token using refresh token
 
@@ -138,6 +143,11 @@ interface AlertMetadata {
   "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 }
 ```
+
+**Used In**:
+- Page: Global authentication (handled by auth context)
+- Component(s): `useFetch.ts` hook, authentication middleware
+- Fields consumed: `tokens.accessToken`, `tokens.refreshToken`
 
 ### GET /auth/me
 **Description**: Get current user information
@@ -168,6 +178,11 @@ interface AlertMetadata {
   }
 }
 ```
+
+**Used In**:
+- Page: `/profile`
+- Component(s): `user-info/index.tsx` (header component)
+- Fields consumed: `user.name`, `user.email`, `user.role`, `user.preferences.timezone`, `user.preferences.notifications`
 
 ---
 
@@ -219,6 +234,11 @@ interface AlertMetadata {
 }
 ```
 
+**Used In**:
+- Page: `/projects`
+- Component(s): Projects table, project stats cards
+- Fields consumed: `projects[].id`, `projects[].name`, `projects[].kpiScore`, `projects[].alertCount`, `projects[].status`, `projects[].lastUpdated`, `pagination.total`
+
 ### GET /projects/{projectId}
 **Description**: Get specific project details
 
@@ -249,6 +269,11 @@ interface AlertMetadata {
   }
 }
 ```
+
+**Used In**:
+- Page: Project detail views, project settings
+- Component(s): Project detail components, settings forms
+- Fields consumed: All project fields including `settings.trackedKeywords`, `settings.alertThresholds`
 
 ### GET /projects/{projectId}/insights
 **Description**: Get project insights and signals
@@ -286,6 +311,11 @@ interface AlertMetadata {
   }
 }
 ```
+
+**Used In**:
+- Page: `/insights`
+- Component(s): Chart components, signal analysis components
+- Fields consumed: `signals[].date`, `signals[].value`, `signals[].type`, `signals[].metadata.platform`, `summary.trend`, `summary.trendPercentage`
 
 ---
 
@@ -344,6 +374,11 @@ interface AlertMetadata {
 }
 ```
 
+**Used In**:
+- Page: `/alerts`
+- Component(s): Alert list, alert stats cards, alert filters
+- Fields consumed: `alerts[].id`, `alerts[].message`, `alerts[].severity`, `alerts[].type`, `alerts[].category`, `alerts[].createdAt`, `alerts[].resolved`, `summary.totalAlerts`, `summary.unresolvedCount`, `summary.highCount`
+
 ### POST /alerts/{alertId}/resolve
 **Description**: Mark an alert as resolved
 
@@ -368,6 +403,11 @@ interface AlertMetadata {
   }
 }
 ```
+
+**Used In**:
+- Page: `/alerts`
+- Component(s): Alert list item actions
+- Fields consumed: `alert.id`, `alert.resolved`, `alert.resolvedAt`
 
 ---
 
@@ -428,6 +468,11 @@ interface AlertMetadata {
 }
 ```
 
+**Used In**:
+- Page: `/content-lab`
+- Component(s): Content list, content editor, content filters
+- Fields consumed: `content[].id`, `content[].url`, `content[].title`, `content[].score`, `content[].analysis.readability`, `content[].analysis.seoScore`, `content[].metrics.views`, `content[].metrics.mentions`
+
 ### POST /content-lab/analyze
 **Description**: Analyze new content URL
 
@@ -451,6 +496,11 @@ interface AlertMetadata {
   }
 }
 ```
+
+**Used In**:
+- Page: `/content-lab`
+- Component(s): Content analysis form
+- Fields consumed: `analysisId`, `status`, `estimatedCompletionTime`
 
 ---
 
@@ -511,6 +561,11 @@ interface AlertMetadata {
   }
 }
 ```
+
+**Used In**:
+- Page: `/experiments`
+- Component(s): Experiments table, experiment status indicators
+- Fields consumed: `experiments[].id`, `experiments[].name`, `experiments[].status`, `experiments[].metrics.conversionRate`, `experiments[].metrics.visitors`, `experiments[].startDate`, `experiments[].endDate`
 
 ---
 
@@ -590,6 +645,11 @@ interface AlertMetadata {
 }
 ```
 
+**Used In**:
+- Page: `/` (homepage)
+- Component(s): `KPICard.tsx`, visibility chart, platform pie chart, top queries list, recent alerts
+- Fields consumed: `kpis.*.value`, `kpis.*.change`, `kpis.*.changeType`, `visibilityTrend[].date`, `visibilityTrend[].visibility`, `visibilityTrend[].mentions`, `platformDistribution[].name`, `platformDistribution[].value`, `topQueries[].query`, `topQueries[].mentions`, `recentAlerts[].message`, `recentAlerts[].severity`
+
 ### GET /analytics/traffic
 **Description**: Get traffic analytics data
 
@@ -622,6 +682,11 @@ interface AlertMetadata {
   }
 }
 ```
+
+**Used In**:
+- Page: `/insights`
+- Component(s): Traffic area chart, traffic summary metrics
+- Fields consumed: `traffic[].date`, `traffic[].organic`, `traffic[].direct`, `traffic[].referral`, `traffic[].social`, `summary.totalTraffic`, `summary.growthRate`
 
 ### GET /analytics/engagement
 **Description**: Get engagement metrics
@@ -673,6 +738,11 @@ interface AlertMetadata {
 }
 ```
 
+**Used In**:
+- Page: `/insights`
+- Component(s): Radar chart for engagement metrics
+- Fields consumed: `metrics[].metric`, `metrics[].value`, `metrics[].fullMark`, `metrics[].trend`
+
 ### GET /analytics/llm-signals
 **Description**: Get LLM platform performance data
 
@@ -705,6 +775,11 @@ interface AlertMetadata {
   }
 }
 ```
+
+**Used In**:
+- Page: `/insights`
+- Component(s): LLM signals bar chart, platform comparison
+- Fields consumed: `platforms[].name`, `platforms[].mentions`, `platforms[].traffic`, `platforms[].engagement`, `summary.totalMentions`, `summary.totalTraffic`
 
 ---
 
@@ -942,4 +1017,257 @@ interface AlertMetadata {
    - Batch processing for analytics
    - Real-time data streaming
 
-This API documentation provides a comprehensive foundation for implementing the Genshark AI Visibility Dashboard backend. The endpoints are designed to be RESTful, scalable, and maintainable while providing all the functionality required by the frontend dashboard.
+### GET /analytics/charts/payments
+**Description**: Get payments overview data
+
+**Query Parameters**:
+- `timeFrame` (optional): Time frame (`monthly`, `yearly`)
+
+**Response**:
+```json
+{
+  "success": true,
+  "data": {
+    "received": [
+      { "x": "Jan", "y": 0 },
+      { "x": "Feb", "y": 20 }
+    ],
+    "due": [
+      { "x": "Jan", "y": 15 },
+      { "x": "Feb", "y": 9 }
+    ]
+  }
+}
+```
+
+**Used In**:
+- Page: Dashboard charts section
+- Component(s): `PaymentsOverview` component, area chart
+- Fields consumed: `received[].x`, `received[].y`, `due[].x`, `due[].y`
+
+### GET /analytics/charts/campaign-visitors
+**Description**: Get campaign visitors data
+
+**Response**:
+```json
+{
+  "success": true,
+  "data": {
+    "total_visitors": 784000,
+    "performance": -1.5,
+    "chart": [
+      { "x": "S", "y": 168 },
+      { "x": "M", "y": 201 }
+    ]
+  }
+}
+```
+
+**Used In**:
+- Page: Dashboard charts section
+- Component(s): `CampaignVisitors` component, line chart
+- Fields consumed: `total_visitors`, `performance`, `chart[].x`, `chart[].y`
+
+### GET /analytics/tables/top-channels
+**Description**: Get top performing channels
+
+**Response**:
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "name": "Google",
+      "visitors": 3456,
+      "revenues": 4220,
+      "sales": 3456,
+      "conversion": 2.59,
+      "logo": "data:image/svg+xml;base64,..."
+    }
+  ]
+}
+```
+
+**Used In**:
+- Page: Dashboard tables section
+- Component(s): `TopChannels` component, channels table
+- Fields consumed: `[].name`, `[].visitors`, `[].revenues`, `[].sales`, `[].conversion`, `[].logo`
+
+### GET /analytics/tables/top-products
+**Description**: Get top performing products
+
+**Response**:
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "image": "/images/product/product-01.png",
+      "name": "Apple Watch Series 7",
+      "category": "Electronics",
+      "price": 296,
+      "sold": 22,
+      "profit": 45
+    }
+  ]
+}
+```
+
+**Used In**:
+- Page: Dashboard tables section
+- Component(s): `TopProducts` component, products table
+- Fields consumed: `[].image`, `[].name`, `[].category`, `[].price`, `[].sold`, `[].profit`
+
+### GET /analytics/charts/devices
+**Description**: Get device usage analytics
+
+**Query Parameters**:
+- `timeFrame` (optional): Time frame (`monthly`, `yearly`)
+
+**Response**:
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "name": "Desktop",
+      "percentage": 0.65,
+      "amount": 1625
+    },
+    {
+      "name": "Tablet",
+      "percentage": 0.1,
+      "amount": 250
+    },
+    {
+      "name": "Mobile",
+      "percentage": 0.2,
+      "amount": 500
+    },
+    {
+      "name": "Unknown",
+      "percentage": 0.05,
+      "amount": 125
+    }
+  ]
+}
+```
+
+**Used In**:
+- Page: Dashboard charts section
+- Component(s): `UsedDevices` component, donut chart
+- Fields consumed: `[].name`, `[].percentage`, `[].amount`
+
+---
+
+## Additional Data Usage Mapping
+
+### Chart Components Data Requirements
+
+#### KPICard Component (`/src/components/ui/KPICard.tsx`)
+**Used In**: Homepage (`/`), Insights page (`/insights`)
+**Data Sources**: 
+- `/analytics/overview` - KPI values and changes
+- Hardcoded data in pages for demo purposes
+**Fields Consumed**: `title`, `value`, `change`, `changeType`, `icon`, `color`
+
+#### Chart Components
+1. **AreaChart** (Visibility Over Time)
+   - **Used In**: Homepage (`/`)
+   - **Data Source**: `/analytics/overview` - `visibilityTrend`
+   - **Fields**: `date`, `visibility`, `mentions`, `traffic`
+
+2. **PieChart** (Platform Distribution)
+   - **Used In**: Homepage (`/`)
+   - **Data Source**: `/analytics/overview` - `platformDistribution`
+   - **Fields**: `name`, `value`, `color`
+
+3. **BarChart** (LLM Signals)
+   - **Used In**: Insights page (`/insights`)
+   - **Data Source**: `/analytics/llm-signals`
+   - **Fields**: `name`, `mentions`, `traffic`
+
+4. **RadarChart** (Engagement Metrics)
+   - **Used In**: Insights page (`/insights`)
+   - **Data Source**: `/analytics/engagement`
+   - **Fields**: `metric`, `value`, `fullMark`
+
+### Table Components Data Requirements
+
+#### Alert Table (`/src/app/alerts/page.tsx`)
+**Data Source**: `/alerts`
+**Fields Consumed**: `id`, `projectId`, `message`, `severity`, `type`, `category`, `createdAt`, `resolved`
+**Filtering**: By severity, status, category, search term
+
+#### Projects Table (`/src/app/projects/page.tsx`)
+**Data Source**: `/projects`
+**Fields Consumed**: `id`, `name`, `kpiScore`, `alertCount`, `status`, `lastUpdated`, `visibility`, `mentions`
+**Sorting**: By name, KPI score, alerts, last updated
+
+#### Content Lab Table (`/src/app/content-lab/page.tsx`)
+**Data Source**: `/content-lab`
+**Fields Consumed**: `id`, `url`, `title`, `score`, `analysis.readability`, `analysis.seoScore`
+**Filtering**: By score range, title/URL search
+
+#### Experiments Table (`/src/app/experiments/page.tsx`)
+**Data Source**: `/experiments`
+**Fields Consumed**: `id`, `name`, `status`, `conversionRate`, `visitors`, `startDate`, `endDate`
+**Filtering**: By status, search term
+
+### Service Layer Data Usage
+
+#### Chart Services (`/src/services/charts.services.ts`)
+**Functions**:
+- `getDevicesUsedData()` → Used by `UsedDevices` component
+- `getPaymentsOverviewData()` → Used by `PaymentsOverview` component
+- `getCampaignVisitorsData()` → Used by `CampaignVisitors` component
+- `getWeeksProfitData()` → Used by profit charts
+- `getVisitorsAnalyticsData()` → Used by visitor analytics
+- `getCostsPerInteractionData()` → Used by cost analysis charts
+
+#### Table Services (`/src/components/Tables/fetch.ts`)
+**Functions**:
+- `getTopProducts()` → Used by `TopProducts` component
+- `getTopChannels()` → Used by `TopChannels` component
+- `getInvoiceTableData()` → Used by invoice tables
+
+### Hook Usage Patterns
+
+#### useFetch Hook (`/src/hooks/useFetch.ts`)
+**Used By**: All pages that fetch data from APIs
+**Pattern**: `const { data, loading, error } = useFetch<Type>(apiFunction)`
+**Pages Using**:
+- `/content-lab` - `useFetch<ContentItem[]>(api.getContentLab)`
+- `/experiments` - `useFetch<Experiment[]>(api.getExperiments)`
+- `/alerts` - `useFetch<AlertItem[]>(api.getAlerts)`
+
+### Mock Data Usage
+
+#### Static Data in Pages
+1. **Homepage** (`/src/app/page.tsx`):
+   - `visibilityData` - Time series data for charts
+   - `engineData` - Platform distribution data
+   - `topPrompts` - Top queries data
+   - `recentAlerts` - Recent alerts data
+
+2. **Insights Page** (`/src/app/insights/page.tsx`):
+   - `trafficData` - Traffic source data
+   - `engagementData` - Engagement metrics
+   - `llmSignalsData` - LLM platform data
+   - `contentPerformanceData` - Content performance data
+   - `competitorData` - Competitor analysis data
+
+3. **Alerts Page** (`/src/app/alerts/page.tsx`):
+   - `mockAlerts` - Alert data with enhanced fields
+
+4. **Projects Page** (`/src/app/projects/page.tsx`):
+   - `mockProjects` - Project data with additional fields
+
+### Data Flow Patterns
+
+1. **API → Hook → Component**: Most data flows through `useFetch` hook
+2. **Service → Component**: Chart and table data flows through service functions
+3. **Mock Data → Component**: Static data defined in page components
+4. **Props → Component**: Data passed down through component props
+
+This comprehensive mapping shows exactly where each API endpoint's data is consumed in the frontend, making it clear for the backend team which fields are essential and which components depend on each endpoint.
