@@ -1,0 +1,24 @@
+{
+  "content": [
+    {
+      "id": "1",
+      "url": "https://example.com/wireless-headphones",
+      "title": "Best Wireless Headphones 2025",
+      "score": 85
+    },
+    {
+      "id": "2",
+      "url": "https://example.com/budget-earbuds",
+      "title": "Budget Earbuds for Running",
+      "score": 72
+    },
+    {
+      "id": "3",
+      "url": "https://example.com/noise-cancelling",
+      "title": "Noise Cancelling Headphones Review",
+      "score": 91
+    }
+  ]
+}
+
+

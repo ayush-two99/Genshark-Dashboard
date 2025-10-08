@@ -1,0 +1,30 @@
+{
+  "alerts": [
+    {
+      "id": "1",
+      "projectId": 1,
+      "message": "Mentions dropped below 50 in the last 7 days",
+      "severity": "medium",
+      "createdAt": "2024-01-15T10:30:00Z",
+      "resolved": false
+    },
+    {
+      "id": "2", 
+      "projectId": 1,
+      "message": "Visibility score increased by 15% today",
+      "severity": "low",
+      "createdAt": "2024-01-15T09:15:00Z",
+      "resolved": false
+    },
+    {
+      "id": "3",
+      "projectId": 2,
+      "message": "Share of voice exceeded 60% target",
+      "severity": "low",
+      "createdAt": "2024-01-15T08:45:00Z",
+      "resolved": true
+    }
+  ]
+}
+
+

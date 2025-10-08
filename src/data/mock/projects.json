@@ -1,0 +1,10 @@
+{
+  "projects": [
+    { "id": 1, "name": "Website SEO", "kpi_score": 78, "alerts": 5 },
+    { "id": 2, "name": "Content AI Audit", "kpi_score": 92, "alerts": 2 }
+  ]
+}
+
+
+
+

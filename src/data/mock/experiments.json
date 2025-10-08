@@ -1,0 +1,20 @@
+{
+  "experiments": [
+    {
+      "id": "1",
+      "name": "Headphone Title Optimization",
+      "status": "running",
+      "conversionRate": 12.5,
+      "visitors": 1250
+    },
+    {
+      "id": "2", 
+      "name": "Product Description A/B Test",
+      "status": "completed",
+      "conversionRate": 8.3,
+      "visitors": 890
+    }
+  ]
+}
+
+
