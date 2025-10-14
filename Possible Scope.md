@@ -45,18 +45,18 @@ We're talking about an AI Visibility Dashboard that needs to track:
 
 ---
 
-## **LLM Platform Analytics - The Heart of Our Dashboard**
+## **LLM Platform Analytics - The USP that most GEO Products sell**
 
-| What We Want | Semrush API Endpoint | Can We Get It? | Reality Check |
+| What We Want | Semrush API Endpoint | Can We Get It? |
 |--------------|---------------------|----------------|---------------|
-| **ChatGPT Mentions** | — | No | The Semrush API doesn't track ChatGPT-specific data |
-| **Claude Mentions** | — | No | No Claude-specific data either |
-| **Perplexity Mentions** | — | No | Perplexity? Not a chance |
-| **Gemini Mentions** | — | No | Gemini mentions? Nope |
-| **Copilot Mentions** | — | No | Copilot mentions? Forget it |
-| **LLM Platform Engagement** | — | No | No AI platform engagement tracking |
-| **AI Platform Traffic** | — | No | Can't attribute traffic to AI platforms |
-| **LLM Query Performance** | — | No | No AI query performance tracking |
+| **ChatGPT Mentions** | — | The Semrush API doesn't track ChatGPT-specific data |
+| **Claude Mentions** | — | No Claude-specific data either |
+| **Perplexity Mentions** | — | Perplexity? Not a chance |
+| **Gemini Mentions** | — | Gemini mentions? Nope |
+| **Copilot Mentions** | — | Copilot mentions? Forget it |
+| **LLM Platform Engagement** | — | No AI platform engagement tracking |
+| **AI Platform Traffic** | — | Can't attribute traffic to AI platforms |
+| **LLM Query Performance** | — | No AI query performance tracking |
 
 ---
 
