@@ -22,13 +22,7 @@ Look, I need to be straight with you. The Semrush API is designed for traditiona
 | **Generative Search Traffic** | 5 things | 0 | 0 | 5 |
 | **AI Prompt Analytics** | 4 things | 0 | 0 | 4 |
 | **Traditional SEO (Nice to Have)** | 15 things | 12 | 2 | 1 |
-| **User Management** | 8 things | 0 | 0 | 8 |
-| **Billing & Settings** | 6 things | 0 | 0 | 6 |
-| **Experiments & A/B Testing** | 4 things | 0 | 0 | 4 |
-| **Alerts & Monitoring** | 5 things | 0 | 0 | 5 |
-| **Reports & Export** | 3 things | 0 | 0 | 3 |
-| **System & Configuration** | 4 things | 0 | 0 | 4 |
-| **TOTAL** | **80 things** | **12** | **2** | **66** |
+| **TOTAL** | **50 things** | **12** | **2** | **36** |
 
 ---
 
@@ -121,100 +115,21 @@ Look, I need to be straight with you. The Semrush API is designed for traditiona
 | **Historical Data** | Various endpoints | ⚠️ | Limited to monthly granularity |
 | **Real-time Data** | — | ❌ | They only provide historical data |
 
----
-
-## 👥 **User Management - The Platform Stuff**
-
-| What We Want | Semrush API Endpoint | Can We Get It? | Reality Check |
-|--------------|---------------------|----------------|---------------|
-| **User Authentication** | — | ❌ | The Semrush API doesn't provide user management |
-| **User Roles & Permissions** | — | ❌ | No user management here |
-| **Organization Management** | — | ❌ | No organization management |
-| **User Preferences** | — | ❌ | No user preferences |
-| **API Key Management** | — | ❌ | No API key management |
-| **User Activity Tracking** | — | ❌ | No user activity tracking |
-| **User Invitations** | — | ❌ | No user invitations |
-| **User Status Management** | — | ❌ | No user status management |
-
----
-
-## 💳 **Billing & Settings - The Business Stuff**
-
-| What We Want | Semrush API Endpoint | Can We Get It? | Reality Check |
-|--------------|---------------------|----------------|---------------|
-| **Billing Information** | — | ❌ | The Semrush API doesn't provide billing management |
-| **Payment Method Management** | — | ❌ | No payment management |
-| **Subscription Management** | — | ❌ | No subscription management |
-| **Invoice Management** | — | ❌ | No invoice management |
-| **Plan Management** | — | ❌ | No plan management |
-| **Settings Management** | — | ❌ | No settings management |
-
----
-
-## 🧪 **Experiments & A/B Testing - The Testing Stuff**
-
-| What We Want | Semrush API Endpoint | Can We Get It? | Reality Check |
-|--------------|---------------------|----------------|---------------|
-| **Experiment Management** | — | ❌ | The Semrush API doesn't provide A/B testing |
-| **Conversion Tracking** | — | ❌ | No conversion tracking |
-| **Funnel Analysis** | — | ❌ | No funnel analysis |
-| **Variant Management** | — | ❌ | No variant management |
-
----
-
-## 🚨 **Alerts & Monitoring - The Alerting Stuff**
-
-| What We Want | Semrush API Endpoint | Can We Get It? | Reality Check |
-|--------------|---------------------|----------------|---------------|
-| **AI Mention Alerts** | — | ❌ | The Semrush API doesn't track AI mentions |
-| **LLM Platform Alerts** | — | ❌ | No AI platform tracking |
-| **AI Visibility Alerts** | — | ❌ | No AI visibility tracking |
-| **Generative Search Alerts** | — | ❌ | No AI search tracking |
-| **Custom Alert Rules** | — | ❌ | No custom alerting |
-
----
-
-## 📋 **Reports & Export - The Reporting Stuff**
-
-| What We Want | Semrush API Endpoint | Can We Get It? | Reality Check |
-|--------------|---------------------|----------------|---------------|
-| **AI Analytics Reports** | — | ❌ | The Semrush API doesn't provide AI analytics |
-| **LLM Platform Reports** | — | ❌ | No AI platform reports |
-| **Custom Report Generation** | — | ❌ | No custom report generation |
-| **Scheduled Reports** | — | ❌ | No scheduling |
-
----
-
-## ⚙️ **System & Configuration - The Technical Stuff**
-
-| What We Want | Semrush API Endpoint | Can We Get It? | Reality Check |
-|--------------|---------------------|----------------|---------------|
-| **System Health Monitoring** | — | ❌ | The Semrush API doesn't provide system monitoring |
-| **Performance Metrics** | — | ❌ | No performance metrics |
-| **Configuration Management** | — | ❌ | No configuration management |
-| **Service Status** | — | ❌ | No service status |
-
----
 
 ## 🔧 **What This All Means**
 
-### ❌ **Semrush API Can't Help Us With (66 things - 82.5%)**
+### ❌ **Semrush API Can't Help Us With (36 things - 72%)**
 - **AI/GEO Core Metrics**: Zero support for AI visibility, LLM mentions, or generative search
 - **LLM Platform Analytics**: No tracking of ChatGPT, Claude, Perplexity, Gemini, Copilot
 - **AI Content Performance**: No AI content scoring or optimization
 - **Generative Search Traffic**: No AI traffic attribution
-- **User Management**: Complete user/organization management system
-- **Billing & Settings**: Payment, subscription, and settings management
-- **Experiments & A/B Testing**: No A/B testing or conversion tracking
-- **Custom Alerts**: No custom alerting system
-- **System Monitoring**: No system health or performance monitoring
 
-### ✅ **Semrush API Can Help Us With (12 things - 15%)**
+### ✅ **Semrush API Can Help Us With (12 things - 24%)**
 - **Traditional SEO**: Domain analytics, keyword research, backlink analysis
 - **Competitor Analysis**: Traditional competitor intelligence
 - **Historical SEO Data**: Limited to monthly granularity
 
-### ⚠️ **Semrush API Kinda Helps With (2 things - 2.5%)**
+### ⚠️ **Semrush API Kinda Helps With (2 things - 4%)**
 - **Historical Data**: Limited granularity (monthly vs daily/hourly)
 - **Real-time Data**: They provide historical data, not real-time
 
@@ -255,7 +170,7 @@ Look, I need to be straight with you. The Semrush API is designed for traditiona
 
 ## 📈 **The Real Numbers**
 
-- **Data Coverage**: 15% of what we need is supported by the Semrush API (only traditional SEO)
+- **Data Coverage**: 24% of what we need is supported by the Semrush API (only traditional SEO)
 - **AI/GEO Coverage**: 0% - The Semrush API provides no AI/GEO data
 - **Integration Complexity**: Very High (requires building AI monitoring from scratch)
 - **Time to Market**: 12+ months for core AI features, 18+ months for full platform
