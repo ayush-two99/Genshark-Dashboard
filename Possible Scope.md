@@ -28,7 +28,7 @@ We're talking about an AI Visibility Dashboard that needs to track:
 
 ## **AI/GEO Core Metrics - The Stuff We Actually Need**
 
-| What We Want | Semrush API Endpoint | Reality Check |
+| What We Want | Semrush API Endpoint | Can we Get It |
 |--------------|---------------------|---------------|
 | **LLM Mentions Count** | — | The Semrush API doesn't track AI platform mentions at all |
 | **AI Visibility Score** | — | No AI-specific visibility metrics here |
