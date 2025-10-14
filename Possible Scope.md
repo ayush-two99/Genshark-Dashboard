@@ -28,20 +28,20 @@ We're talking about an AI Visibility Dashboard that needs to track:
 
 ## **AI/GEO Core Metrics - The Stuff We Actually Need**
 
-| What We Want | Semrush API Endpoint | Can We Get It? | Reality Check |
-|--------------|---------------------|----------------|---------------|
-| **LLM Mentions Count** | — | No | The Semrush API doesn't track AI platform mentions at all |
-| **AI Visibility Score** | — | No | No AI-specific visibility metrics here |
-| **Share of Voice (AI)** | — | No | They don't track AI platform share of voice |
-| **AI Traffic Impact** | — | No | Can't attribute traffic to AI platforms |
-| **Generative Search Queries** | — | No | They don't track AI-generated search queries |
-| **AI Content Performance** | — | No | No analysis of AI-optimized content |
-| **LLM Platform Distribution** | — | No | No tracking of ChatGPT, Claude, Perplexity, etc. |
-| **AI Query Success Rate** | — | No | No AI query performance tracking |
-| **Generative Engine Rankings** | — | No | No AI platform rankings |
-| **AI Prompt Effectiveness** | — | No | No prompt performance analysis |
-| **AI Content Optimization Score** | — | No | No AI content scoring |
-| **Generative Search Trends** | — | No | No AI search trends |
+| What We Want | Semrush API Endpoint | Reality Check |
+|--------------|---------------------|---------------|
+| **LLM Mentions Count** | — | The Semrush API doesn't track AI platform mentions at all |
+| **AI Visibility Score** | — | No AI-specific visibility metrics here |
+| **Share of Voice (AI)** | — | They don't track AI platform share of voice |
+| **AI Traffic Impact** | — | Can't attribute traffic to AI platforms |
+| **Generative Search Queries** | — | They don't track AI-generated search queries |
+| **AI Content Performance** | — | No analysis of AI-optimized content |
+| **LLM Platform Distribution** | — | No tracking of ChatGPT, Claude, Perplexity, etc. |
+| **AI Query Success Rate** | — | No AI query performance tracking |
+| **Generative Engine Rankings** | — | No AI platform rankings |
+| **AI Prompt Effectiveness** | — | No prompt performance analysis |
+| **AI Content Optimization Score** | — | No AI content scoring |
+| **Generative Search Trends** | — | No AI search trends |
 
 ---
 
