@@ -28,20 +28,20 @@ We're talking about an AI Visibility Dashboard that needs to track:
 
 ## **AI/GEO Core Metrics - The Stuff We Actually Need**
 
-| What We Want | Semrush API Endpoint | Can we Get It |
+| Requirement | Semrush API Endpoint | Availability |
 |--------------|---------------------|---------------|
-| **LLM Mentions Count** | — | The Semrush API doesn't track AI platform mentions at all |
-| **AI Visibility Score** | — | No AI-specific visibility metrics here |
-| **Share of Voice (AI)** | — | They don't track AI platform share of voice |
-| **AI Traffic Impact** | — | Can't attribute traffic to AI platforms |
-| **Generative Search Queries** | — | They don't track AI-generated search queries |
-| **AI Content Performance** | — | No analysis of AI-optimized content |
-| **LLM Platform Distribution** | — | No tracking of ChatGPT, Claude, Perplexity, etc. |
-| **AI Query Success Rate** | — | No AI query performance tracking |
-| **Generative Engine Rankings** | — | No AI platform rankings |
-| **AI Prompt Effectiveness** | — | No prompt performance analysis |
-| **AI Content Optimization Score** | — | No AI content scoring |
-| **Generative Search Trends** | — | No AI search trends |
+| **LLM Mentions Count** | — | Not available - Semrush API does not track AI platform mentions |
+| **AI Visibility Score** | — | Not available - No AI-specific visibility metrics provided |
+| **Share of Voice (AI)** | — | Not available - Does not track AI platform share of voice |
+| **AI Traffic Impact** | — | Not available - Cannot attribute traffic to AI platforms |
+| **Generative Search Queries** | — | Not available - Does not track AI-generated search queries |
+| **AI Content Performance** | — | Not available - No analysis of AI-optimized content |
+| **LLM Platform Distribution** | — | Not available - No tracking of ChatGPT, Claude, Perplexity, etc. |
+| **AI Query Success Rate** | — | Not available - No AI query performance tracking |
+| **Generative Engine Rankings** | — | Not available - No AI platform rankings |
+| **AI Prompt Effectiveness** | — | Not available - No prompt performance analysis |
+| **AI Content Optimization Score** | — | Not available - No AI content scoring |
+| **Generative Search Trends** | — | Not available - No AI search trends |
 
 ---
 
@@ -49,102 +49,102 @@ We're talking about an AI Visibility Dashboard that needs to track:
 
 | What We Want | Semrush API Endpoint | Can We Get It? |
 |--------------|---------------------|----------------|---------------|
-| **ChatGPT Mentions** | — | The Semrush API doesn't track ChatGPT-specific data |
-| **Claude Mentions** | — | No Claude-specific data either |
-| **Perplexity Mentions** | — | Perplexity? Not a chance |
-| **Gemini Mentions** | — | Gemini mentions? Nope |
-| **Copilot Mentions** | — | Copilot mentions? Forget it |
-| **LLM Platform Engagement** | — | No AI platform engagement tracking |
-| **AI Platform Traffic** | — | Can't attribute traffic to AI platforms |
-| **LLM Query Performance** | — | No AI query performance tracking |
+| **ChatGPT Mentions** | — | Not available - Semrush API does not track ChatGPT-specific data |
+| **Claude Mentions** | — | Not available - No Claude-specific data provided |
+| **Perplexity Mentions** | — | Not available - No Perplexity-specific data |
+| **Gemini Mentions** | — | Not available - No Gemini-specific data |
+| **Copilot Mentions** | — | Not available - No Copilot-specific data |
+| **LLM Platform Engagement** | — | Not available - No AI platform engagement tracking |
+| **AI Platform Traffic** | — | Not available - Cannot attribute traffic to AI platforms |
+| **LLM Query Performance** | — | Not available - No AI query performance tracking |
 
 ---
 
-## **AI Content Performance - How Our Content Does in AI**
+## **AI Content Performance - Content Performance in AI Systems**
 
-| What We Want | Semrush API Endpoint | Can We Get It? | Reality Check |
-|--------------|---------------------|----------------|---------------|
-| **AI-Optimized Content Score** | — | No | The Semrush API doesn't provide AI content scoring |
-| **AI Content Visibility** | — | No | No AI content visibility tracking |
-| **Generative Content Performance** | — | No | No analysis of AI-generated content |
-| **AI Content Engagement** | — | No | No AI content engagement tracking |
-| **Prompt-Based Content Analysis** | — | No | No prompt-driven content analysis |
-| **AI Content Optimization** | — | No | No AI content optimization |
-
----
-
-## **Generative Search Traffic - Traffic from AI**
-
-| What We Want | Semrush API Endpoint | Can We Get It? | Reality Check |
-|--------------|---------------------|----------------|---------------|
-| **AI-Generated Traffic** | — | No | The Semrush API doesn't track AI-generated traffic |
-| **Generative Search Attribution** | — | No | Can't attribute traffic to AI platforms |
-| **AI Query Traffic** | — | No | No AI query traffic tracking |
-| **Generative Engine Traffic** | — | No | No AI engine traffic tracking |
-| **AI Platform Traffic Sources** | — | No | No AI platform traffic sources |
+| Requirement | Semrush API Endpoint | Availability |
+|--------------|---------------------|---------------|
+| **AI-Optimized Content Score** | — | Not available - Semrush API does not provide AI content scoring |
+| **AI Content Visibility** | — | Not available - No AI content visibility tracking |
+| **Generative Content Performance** | — | Not available - No analysis of AI-generated content |
+| **AI Content Engagement** | — | Not available - No AI content engagement tracking |
+| **Prompt-Based Content Analysis** | — | Not available - No prompt-driven content analysis |
+| **AI Content Optimization** | — | Not available - No AI content optimization |
 
 ---
 
-## **AI Prompt Analytics - How Good Are Our Prompts?**
+## **Generative Search Traffic - AI-Generated Traffic Analysis**
 
-| What We Want | Semrush API Endpoint | Can We Get It? | Reality Check |
-|--------------|---------------------|----------------|---------------|
-| **Prompt Performance Tracking** | — | No | The Semrush API doesn't track prompt performance |
-| **AI Query Effectiveness** | — | No | No AI query effectiveness analysis |
-| **Prompt Optimization Metrics** | — | No | No prompt optimization |
-| **AI Query Success Rate** | — | No | No AI query success rates |
+| Requirement | Semrush API Endpoint | Availability |
+|--------------|---------------------|---------------|
+| **AI-Generated Traffic** | — | Not available - Semrush API does not track AI-generated traffic |
+| **Generative Search Attribution** | — | Not available - Cannot attribute traffic to AI platforms |
+| **AI Query Traffic** | — | Not available - No AI query traffic tracking |
+| **Generative Engine Traffic** | — | Not available - No AI engine traffic tracking |
+| **AI Platform Traffic Sources** | — | Not available - No AI platform traffic sources |
 
 ---
 
-## **Traditional SEO - The Bonus Stuff**
+## **AI Prompt Analytics - Prompt Performance Analysis**
 
-| What We Want | Semrush API Endpoint | Can We Get It? | Reality Check |
-|--------------|---------------------|----------------|---------------|
-| **Organic Keywords Count** | `domain_ranks` | Yes | Yeah, we can get this as `Organic Keywords` |
-| **Organic Traffic Volume** | `domain_ranks` | Yes | Available as `Organic Traffic` |
-| **Paid Keywords Count** | `domain_ranks` | Yes | Available as `Adwords Keywords` |
-| **Paid Traffic Volume** | `domain_ranks` | Yes | Available as `Adwords Traffic` |
-| **Backlinks Count** | `backlinks_overview` | Yes | Available as `total` |
-| **Referring Domains** | `backlinks_overview` | Yes | Available as `domains_num` |
-| **Authority Score** | `backlinks_overview` | Yes | Available as `ascore` |
-| **Keyword Search Volume** | `phrase_this` | Yes | Available as `Search Volume` |
-| **Keyword CPC Data** | `phrase_this` | Yes | Available as `CPC` |
-| **Keyword Competition** | `phrase_this` | Yes | Available as `Competition` |
-| **Competitor Analysis** | `domain_organic_organic` | Yes | We can get competitor domains |
-| **Top Pages** | `domain_organic_unique` | Yes | We can get top organic pages |
-| **Historical Data** | Various endpoints | Partial | Limited to monthly granularity |
-| **Real-time Data** | — | No | They only provide historical data |
+| Requirement | Semrush API Endpoint | Availability |
+|--------------|---------------------|---------------|
+| **Prompt Performance Tracking** | — | Not available - Semrush API does not track prompt performance |
+| **AI Query Effectiveness** | — | Not available - No AI query effectiveness analysis |
+| **Prompt Optimization Metrics** | — | Not available - No prompt optimization |
+| **AI Query Success Rate** | — | Not available - No AI query success rates |
+
+---
+
+## **Traditional SEO - Additional Capabilities**
+
+| Requirement | Semrush API Endpoint | Availability |
+|--------------|---------------------|---------------|
+| **Organic Keywords Count** | `domain_ranks` | Available - Provided as `Organic Keywords` |
+| **Organic Traffic Volume** | `domain_ranks` | Available - Provided as `Organic Traffic` |
+| **Paid Keywords Count** | `domain_ranks` | Available - Provided as `Adwords Keywords` |
+| **Paid Traffic Volume** | `domain_ranks` | Available - Provided as `Adwords Traffic` |
+| **Backlinks Count** | `backlinks_overview` | Available - Provided as `total` |
+| **Referring Domains** | `backlinks_overview` | Available - Provided as `domains_num` |
+| **Authority Score** | `backlinks_overview` | Available - Provided as `ascore` |
+| **Keyword Search Volume** | `phrase_this` | Available - Provided as `Search Volume` |
+| **Keyword CPC Data** | `phrase_this` | Available - Provided as `CPC` |
+| **Keyword Competition** | `phrase_this` | Available - Provided as `Competition` |
+| **Competitor Analysis** | `domain_organic_organic` | Available - Provides competitor domains |
+| **Top Pages** | `domain_organic_unique` | Available - Provides top organic pages |
+| **Historical Data** | Various endpoints | Limited - Monthly granularity only |
+| **Real-time Data** | — | Not available - Historical data only |
 
 
-## **What This All Means**
+## **Analysis Summary**
 
-### **Semrush API Can't Help Us With (36 things - 72%)**
+### **Semrush API Limitations (36 requirements - 72%)**
 - **AI/GEO Core Metrics**: Zero support for AI visibility, LLM mentions, or generative search
 - **LLM Platform Analytics**: No tracking of ChatGPT, Claude, Perplexity, Gemini, Copilot
 - **AI Content Performance**: No AI content scoring or optimization
 - **Generative Search Traffic**: No AI traffic attribution
 
-### **Semrush API Can Help Us With (12 things - 24%)**
+### **Semrush API Capabilities (12 requirements - 24%)**
 - **Traditional SEO**: Domain analytics, keyword research, backlink analysis
 - **Competitor Analysis**: Traditional competitor intelligence
 - **Historical SEO Data**: Limited to monthly granularity
 
-### **Semrush API Kinda Helps With (2 things - 4%)**
+### **Semrush API Partial Support (2 requirements - 4%)**
 - **Historical Data**: Limited granularity (monthly vs daily/hourly)
 - **Real-time Data**: They provide historical data, not real-time
 
 ---
 
-## **My Honest Recommendation**
+## **Recommendation**
 
-### **Don't use the Semrush API as your main data source for Genshark.**
+### **The Semrush API is not suitable as the primary data source for Genshark.**
 
-**Here's why:**
-1. **No AI Platform Tracking**: The Semrush API doesn't track ChatGPT, Claude, Perplexity, Gemini, Copilot
-2. **No LLM Mentions**: They don't monitor AI platform mentions
-3. **No Generative Search**: They don't track AI-generated search queries
-4. **No AI Content Scoring**: They don't provide AI content optimization
-5. **No GEO Metrics**: They don't support Generative Engine Optimization
+**Key limitations:**
+1. **No AI Platform Tracking**: The Semrush API does not track ChatGPT, Claude, Perplexity, Gemini, or Copilot
+2. **No LLM Mentions**: Does not monitor AI platform mentions
+3. **No Generative Search**: Does not track AI-generated search queries
+4. **No AI Content Scoring**: Does not provide AI content optimization
+5. **No GEO Metrics**: Does not support Generative Engine Optimization
 
 ### **What You Should Do Instead:**
 
