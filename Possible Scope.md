@@ -48,7 +48,7 @@ We're talking about an AI Visibility Dashboard that needs to track:
 ## **LLM Platform Analytics - The USP that most GEO Products sell**
 
 | What We Want | Semrush API Endpoint | Can We Get It? |
-|--------------|---------------------|----------------|---------------|
+|--------------|---------------------|----------------|
 | **ChatGPT Mentions** | — | Not available - Semrush API does not track ChatGPT-specific data |
 | **Claude Mentions** | — | Not available - No Claude-specific data provided |
 | **Perplexity Mentions** | — | Not available - No Perplexity-specific data |
@@ -146,49 +146,49 @@ We're talking about an AI Visibility Dashboard that needs to track:
 4. **No AI Content Scoring**: Does not provide AI content optimization
 5. **No GEO Metrics**: Does not support Generative Engine Optimization
 
-### **What You Should Do Instead:**
+### **Recommended Alternative Approaches:**
 
-#### **For AI/GEO Data:**
-- **Custom AI Monitoring**: Build your own scrapers for LLM platforms
-- **AI Platform APIs**: Go directly to ChatGPT, Claude, Perplexity APIs
-- **Social Media APIs**: Track AI mentions on Twitter, LinkedIn, Reddit
+#### **AI/GEO Data Sources:**
+- **Custom AI Monitoring**: Develop proprietary scrapers for LLM platforms
+- **AI Platform APIs**: Direct integration with ChatGPT, Claude, Perplexity APIs
+- **Social Media APIs**: Monitor AI mentions on Twitter, LinkedIn, Reddit
 - **News APIs**: Monitor AI mentions in news articles
-- **Custom Analytics**: Build AI-specific analytics from scratch
+- **Custom Analytics**: Develop AI-specific analytics from scratch
 
-#### **For Traditional SEO (Bonus):**
-- **Semrush API**: Use it for traditional SEO data as a bonus feature
+#### **Traditional SEO (Additional):**
+- **Semrush API**: Utilize for traditional SEO data as supplementary feature
 - **Google Search Console**: For search performance data
 - **Google Analytics**: For traffic and user behavior data
 
-#### **For Platform Features:**
-- **User Management**: Auth0, Firebase Auth, or build your own
+#### **Platform Features:**
+- **User Management**: Auth0, Firebase Auth, or custom implementation
 - **Billing**: Stripe, PayPal, or similar payment processors
-- **A/B Testing**: Google Optimize, Optimizely, or build your own
+- **A/B Testing**: Google Optimize, Optimizely, or custom implementation
 - **System Monitoring**: New Relic, DataDog, or similar APM tools
 
 ---
 
-## **The Real Numbers**
+## **Key Metrics**
 
-- **Data Coverage**: 24% of what we need is supported by the Semrush API (only traditional SEO)
-- **AI/GEO Coverage**: 0% - The Semrush API provides no AI/GEO data
-- **Integration Complexity**: Very High (requires building AI monitoring from scratch)
-- **Time to Market**: 12+ months for core AI features, 18+ months for full platform
-- **Cost Efficiency**: Low (Semrush API only provides bonus traditional SEO data)
+- **Data Coverage**: 24% of requirements supported by Semrush API (traditional SEO only)
+- **AI/GEO Coverage**: 0% - Semrush API provides no AI/GEO data
+- **Integration Complexity**: Very High (requires developing AI monitoring from scratch)
+- **Time to Market**: 12+ months for core AI features, 18+ months for complete platform
+- **Cost Efficiency**: Low (Semrush API provides only supplementary traditional SEO data)
 
 ---
 
-## **Bottom Line**
+## **Conclusion**
 
-**Don't use the Semrush API as the primary data source for Genshark.**
+**The Semrush API is not suitable as the primary data source for Genshark.**
 
-**Instead:**
-1. **Build custom AI monitoring** for LLM platforms and mentions
+**Recommended approach:**
+1. **Develop custom AI monitoring** for LLM platforms and mentions
 2. **Integrate directly with AI platform APIs** where available
-3. **Use the Semrush API only as a bonus feature** for traditional SEO data
+3. **Utilize the Semrush API as supplementary feature** for traditional SEO data
 4. **Focus on AI/GEO-specific data sources** and custom development
 
-**Genshark needs to be built as a specialized AI visibility platform, not a traditional SEO tool.**
+**Genshark should be developed as a specialized AI visibility platform, not a traditional SEO tool.**
 
 ---
 
