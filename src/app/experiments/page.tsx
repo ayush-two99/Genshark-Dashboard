@@ -1,148 +1,178 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
-import { useFetch } from '@/hooks/useFetch';
-import { api } from '@/services/api';
-import {
-  ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid,
-} from 'recharts';
-import { Search, Filter, Play, Pause, Flag, TrendingUp } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { FileText, ExternalLink, BarChart3, Loader2, AlertCircle } from 'lucide-react';
 
-type Experiment = {
-  id: string;
-  name: string;
-  status: 'running' | 'completed' | 'draft';
-  conversionRate: number;
-  visitors?: number;
-  startDate?: string;
-  endDate?: string;
+type BrandId = 'mahindra' | 'piramal' | 'sriram' | 'muthoot';
+
+type PageRow = {
+  url: string;
+  category: string;
+  trafficPct: number;
+  numKeywords: number;
+  traffic: number;
 };
 
-const funnelData = [
-  { stage: 'Views', value: 12000 },
-  { stage: 'Clicks', value: 5400 },
-  { stage: 'Reads', value: 3200 },
-  { stage: 'Signups', value: 980 },
-  { stage: 'Purchases', value: 420 },
+const brands: { id: BrandId; label: string }[] = [
+  { id: 'mahindra', label: 'Mahindra Finance' },
+  { id: 'piramal', label: 'Piramal Finance' },
+  { id: 'sriram', label: 'Sriram Finance' },
+  { id: 'muthoot', label: 'Muthoot Finance' },
 ];
 
-export default function ExperimentsPage() {
-  const { data, loading, error } = useFetch<Experiment[]>(api.getExperiments);
-  const [query, setQuery] = useState('');
-  const [status, setStatus] = useState<'all' | 'running' | 'completed' | 'draft'>('all');
-  const experiments = data ?? [];
+const ROWS_LIMIT = 0; // 0 = fetch all rows per brand
 
-  const filtered = useMemo(() => {
-    const q = query.toLowerCase();
-    return experiments
-      .filter(e => e.name.toLowerCase().includes(q))
-      .filter(e => status === 'all' ? true : e.status === status)
-      .sort((a, b) => (b.conversionRate ?? 0) - (a.conversionRate ?? 0));
-  }, [experiments, query, status]);
+export default function PageWiseAnalysisPage() {
+  const [selectedBrand, setSelectedBrand] = useState<BrandId>('mahindra');
+  const [rows, setRows] = useState<PageRow[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const brandLabel = brands.find((b) => b.id === selectedBrand)?.label ?? selectedBrand;
+
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
+    fetch(`/api/page-wise?brand=${selectedBrand}${ROWS_LIMIT ? `&limit=${ROWS_LIMIT}` : ''}`)
+      .then((res) => {
+        if (!res.ok) throw new Error(res.statusText || 'Failed to load');
+        return res.json();
+      })
+      .then((data: PageRow[]) => {
+        if (!cancelled) setRows(Array.isArray(data) ? data : []);
+      })
+      .catch((e) => {
+        if (!cancelled) setError(e.message || 'Failed to load data');
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedBrand]);
 
   return (
-    <div className="space-y-6 p-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900">Experiments</h1>
-          <p className="text-gray-600 mt-1">Track funnels, A/B tests, and performance</p>
-        </div>
-      </div>
-
-      {/* Funnel */}
-      <div className="bg-white rounded-lg border border-gray-200 p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-gray-900">Acquisition Funnel</h3>
-          <span className="text-sm text-gray-600">Last 30 days</span>
-        </div>
-        <ResponsiveContainer width="100%" height={280}>
-          <BarChart data={funnelData} layout="vertical" barSize={22}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
-            <XAxis type="number" tick={{ fontSize: 12 }} />
-            <YAxis dataKey="stage" type="category" tick={{ fontSize: 12 }} width={90} />
-            <Tooltip contentStyle={{ backgroundColor: 'white', border: '1px solid #E5E7EB', borderRadius: 8 }} />
-            <Bar dataKey="value" fill="#3B82F6" radius={[0, 6, 6, 0]} />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
-
-      {/* Filters */}
-      <div className="bg-white rounded-lg border border-gray-200 p-4">
-        <div className="flex flex-col sm:flex-row gap-3">
-          <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search experiments..."
-              className="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
+    <div className="space-y-8 p-6 bg-gradient-to-b from-gray-50/80 to-white min-h-screen">
+      {/* Page header */}
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-sky-700 via-blue-600 to-indigo-700 px-8 py-8 text-white shadow-xl">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(255,255,255,0.15),transparent)]" />
+        <div className="relative flex items-center gap-4">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/20 backdrop-blur">
+            <FileText className="h-7 w-7 text-white" />
           </div>
-          <div className="flex items-center gap-2">
-            <Filter className="w-4 h-4 text-gray-500" />
-            <select
-              value={status}
-              onChange={(e) => setStatus(e.target.value as any)}
-              className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight">Page wise analysis</h1>
+            <p className="mt-2 text-blue-100 text-lg">URL, category, traffic share, keywords and traffic by brand</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Brand switcher */}
+      <div className="rounded-2xl border border-gray-200/80 bg-white p-4 shadow-sm">
+        <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">Select brand</p>
+        <div className="flex flex-wrap gap-2">
+          {brands.map((brand) => (
+            <button
+              key={brand.id}
+              onClick={() => setSelectedBrand(brand.id)}
+              disabled={loading}
+              className={`relative px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 disabled:opacity-60 ${
+                selectedBrand === brand.id
+                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25 ring-2 ring-blue-400/50'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900'
+              }`}
             >
-              <option value="all">All statuses</option>
-              <option value="running">Running</option>
-              <option value="completed">Completed</option>
-              <option value="draft">Draft</option>
-            </select>
-          </div>
+              {brand.label}
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* Experiments Table */}
-      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead className="bg-gray-50 border-b border-gray-200">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Conversion</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Visitors</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Start</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">End</th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {loading && (
-                <tr><td colSpan={6} className="px-6 py-4 text-sm text-gray-500">Loading…</td></tr>
-              )}
-              {error && (
-                <tr><td colSpan={6} className="px-6 py-4 text-sm text-red-600">Failed to load</td></tr>
-              )}
-              {filtered.map((exp) => (
-                <tr key={exp.id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">{exp.name}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                      exp.status === 'running' ? 'bg-green-100 text-green-700' :
-                      exp.status === 'completed' ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-700'
-                    }`}>
-                      {exp.status}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="flex items-center">
-                      <span className="text-sm font-semibold text-gray-900">{exp.conversionRate}%</span>
-                      <TrendingUp className="w-4 h-4 text-emerald-600 ml-2" />
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{exp.visitors ?? '-'}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{exp.startDate ? new Date(exp.startDate).toLocaleDateString() : '-'}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{exp.endDate ? new Date(exp.endDate).toLocaleDateString() : '-'}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      {/* Table card */}
+      <div className="rounded-2xl overflow-hidden bg-white shadow-lg shadow-gray-200/50 border border-gray-100">
+        <div className="bg-gradient-to-r from-gray-50 to-gray-100/80 px-6 py-5 border-b border-gray-200/80">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
+                <BarChart3 className="h-5 w-5" />
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-gray-900">{brandLabel}</h2>
+                <p className="text-sm text-gray-500 mt-0.5">
+                  {loading ? 'Loading…' : `${rows.length.toLocaleString()} page${rows.length !== 1 ? 's' : ''}`}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="overflow-hidden rounded-b-2xl">
+          {error && (
+            <div className="flex items-center gap-3 p-6 bg-red-50 border-b border-red-100 text-red-700">
+              <AlertCircle className="h-5 w-5 shrink-0" />
+              <p>{error}</p>
+            </div>
+          )}
+          {loading && (
+            <div className="flex items-center justify-center py-24 text-gray-500">
+              <Loader2 className="h-8 w-8 animate-spin mr-2" />
+              <span>Loading data…</span>
+            </div>
+          )}
+          {!loading && !error && (
+            <div className="overflow-x-auto max-h-[70vh] overflow-y-auto">
+              <table className="w-full text-sm">
+                <thead className="sticky top-0 z-10 bg-gray-100/95 backdrop-blur border-b border-gray-200">
+                  <tr>
+                    <th className="text-left py-4 pl-6 font-semibold text-gray-800">URL</th>
+                    <th className="text-left py-4 px-4 font-semibold text-gray-800">Category</th>
+                    <th className="text-right py-4 px-4 font-semibold text-gray-800">Traffic (%)</th>
+                    <th className="text-right py-4 px-4 font-semibold text-gray-800">Number of Keywords</th>
+                    <th className="text-right py-4 pr-6 font-semibold text-gray-800">Traffic</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.length === 0 ? (
+                    <tr>
+                      <td colSpan={5} className="py-16 text-center text-gray-500">
+                        No data for this brand.
+                      </td>
+                    </tr>
+                  ) : (
+                    rows.map((row, i) => (
+                      <tr
+                        key={`${selectedBrand}-${row.url}-${i}`}
+                        className={`border-b border-gray-100 last:border-0 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'} hover:bg-blue-50/40 transition-colors`}
+                      >
+                        <td className="py-4 pl-6">
+                          <a
+                            href={row.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 font-medium text-blue-600 hover:text-blue-700 hover:underline max-w-md truncate"
+                          >
+                            <span className="truncate">{row.url.replace(/^https?:\/\//, '')}</span>
+                            <ExternalLink className="h-3.5 w-3.5 shrink-0 opacity-70" />
+                          </a>
+                        </td>
+                        <td className="py-4 px-4">
+                          <span className="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-medium bg-sky-50 text-sky-700 border border-sky-200/80">
+                            {row.category}
+                          </span>
+                        </td>
+                        <td className="py-4 px-4 text-right tabular-nums font-medium text-gray-800">{row.trafficPct}%</td>
+                        <td className="py-4 px-4 text-right tabular-nums text-gray-700">{row.numKeywords.toLocaleString()}</td>
+                        <td className="py-4 pr-6 text-right tabular-nums font-semibold text-gray-900">{row.traffic.toLocaleString()}</td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 }
-
-

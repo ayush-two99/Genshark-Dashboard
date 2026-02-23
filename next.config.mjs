@@ -1,5 +1,13 @@
 /** @type {import("next").NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      { source: "/projects", destination: "/content-intelligence", permanent: true },
+      { source: "/insights", destination: "/content-health", permanent: true },
+      { source: "/content-lab", destination: "/trust-opportunity", permanent: true },
+      { source: "/alerts", destination: "/keywords-cluster", permanent: true },
+    ];
+  },
   images: {
     remotePatterns: [
       {
